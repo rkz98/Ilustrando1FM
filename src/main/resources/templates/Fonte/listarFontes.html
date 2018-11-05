@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Fonte de Receita | i1FM Admin</title>
+
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet">
+
+</head>
+<body>
+
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span>i1FM</span>Admin</a>
+			</div>
+		</div>
+
+		<!-- /.container-fluid -->
+	</nav>
+
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+
+		<div class="profile-sidebar">
+			<div class="profile-userpic">
+				<img src="img/rkz98.png" class="img-responsive" alt="">
+			</div>
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name">Kauê R.</div>
+				<div class="profile-usertitle-status">
+					<span class="indicator label-success"></span>Online
+				</div>
+			</div>
+
+			<div class="clear"></div>
+
+		</div>
+
+		<div class="divider"></div>
+
+		<ul class="nav menu">
+			<li><a href=""><em class="fa fa-slack">&nbsp;</em> Dashboard</a></li>
+
+			<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
+					<em class="fa fa-usd">&nbsp;</em> Arrecadação <span
+					data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em
+						class="fa fa-plus"></em></span>
+			</a>
+
+				<ul class="children collapse" id="sub-item-1">
+					<li><a class="" href="/cadastrarArrecadacao"> <span
+							class="fa fa-edit">&nbsp;</span> Cadastrar
+					</a></li>
+
+					<li><a class="" href="/listarArrecadacoes"> <span
+							class="fa fa-table">&nbsp;</span> Visualizar
+					</a></li>
+				</ul></li>
+
+			<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
+					<em class="fa fa-share-alt">&nbsp;</em> Destinação <span
+					data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em
+						class="fa fa-plus"></em></span>
+			</a>
+
+				<ul class="children collapse" id="sub-item-2">
+					<li><a class="" href="/cadastrarDestinacao"> <span
+							class="fa fa-edit">&nbsp;</span> Cadastrar
+					</a></li>
+
+					<li><a class="" href="/listarDestinacoes"> <span
+							class="fa fa-table">&nbsp;</span> Visualizar
+					</a></li>
+				</ul></li>
+
+			<li class="parent "><a data-toggle="collapse" href="#sub-item-3">
+					<em class="fa fa-users">&nbsp;</em> Fonte de Receita <span
+					data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em
+						class="fa fa-plus"></em></span>
+			</a>
+
+				<ul class="children collapse" id="sub-item-3">
+					<li><a class="" href="/cadastrarFonte"> <span
+							class="fa fa-edit">&nbsp;</span> Cadastrar
+					</a></li>
+
+					<li><a class="" href="/listarFontes"> <span
+							class="fa fa-table">&nbsp;</span> Visualizar
+					</a></li>
+				</ul></li>
+
+			<li class="parent "><a data-toggle="collapse" href="#sub-item-4">
+					<em class="fa fa-list-ul">&nbsp;</em> Categoria <span
+					data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em
+						class="fa fa-plus"></em></span>
+			</a>
+
+				<ul class="children collapse" id="sub-item-4">
+					<li><a class="" href="/cadastrarCategoria"> <span
+							class="fa fa-edit">&nbsp;</span> Cadastrar
+					</a></li>
+					<li><a class="" href="/listarCategorias"> <span
+							class="fa fa-table">&nbsp;</span> Visualizar
+					</a></li>
+				</ul></li>
+
+			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em>
+					Sair</a></li>
+		</ul>
+	</div>
+
+	<!--/.sidebar-->
+
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"> <em class="fa fa-table"></em>
+				</a></li>
+				<li class="active">Fonte de Receita / Visualizar</li>
+			</ol>
+		</div>
+
+		<!--/.row-->
+
+		<div class="row">
+			<div class="col-lg-5">
+				<h1 class="page-header">Visualizar</h1>
+			</div>
+		</div>
+
+		<!--/.row-->
+		<div class="bootstrap-table">
+
+			<div class="fixed-table-toolbar">
+				<div class="columns btn-group pull-right">
+					<a href="/listarFontes">
+						<button class="btn btn-default" type="button" name="refresh"
+							title="Recarregar">
+							<i class="glyphicon glyphicon-refresh icon-refresh"></i>
+						</button>
+					</a>
+				</div>
+			</div>
+
+			<div class="pull-right search">
+
+				<select class="form-control" id="filtro">
+					<option value="0">por ID</option>
+					<option value="1">por Nome</option>
+					<option value="2">por Tipo de Pessoa</option>
+					<option value="3">por Documento</option>
+					<option value="4">por CEP</option>
+					<option value="5">por Endereço</option>
+				</select>
+
+			</div>
+
+			<div class="pull-right search">
+				<input class="form-control" placeholder="Pesquisar" type="text"
+					id="pesquisar" onkeyup="pesquisarValor()"> </br>
+			</div>
+		</div>
+		<div class="fixed-table-container">
+			<div class="fixed-table-header">
+
+				<div class="fixed-table-body">
+					<div class="fixed-table-loading" style="top: 37px; display: none;">Loading,
+						please wait…</div>
+
+					<table data-toggle="table" data-url="tables/data1.json"
+						data-show-refresh="true" data-show-toggle="true"
+						data-show-columns="true" data-search="true"
+						data-select-item-name="toolbar1" data-pagination="true"
+						data-sort-name="name" data-sort-order="desc"
+						class="table table-hover" id="tabela">
+						<thead>
+							<tr>
+
+								<th style=""><div class="">ID</div>
+									<div class="fht-cell"></div></th>
+
+								<th style=""><div class="">Nome</div>
+									<div class="fht-cell"></div></th>
+
+								<th style=""><div class="">Tipo de Pessoa</div>
+									<div class="fht-cell"></div></th>
+
+								<th style=""><div class="">Documento</div>
+									<div class="fht-cell"></div></th>
+
+								<th style=""><div class="">CEP</div>
+									<div class="fht-cell"></div></th>
+
+								<th style=""><div class="">Endereço</div>
+									<div class="fht-cell"></div></th>
+
+								<th style=""><div class="">Deletar</div>
+									<div class="fht-cell"></div></th>
+							</tr>
+
+						</thead>
+						<tbody>
+							<th:block th:each="listaValores : ${fontes}">
+								<tr>
+									<td th:text="${listaValores.id}" class="idFonteList"></td>
+									<td th:text="${listaValores.nome}" class="nomeList"></td>
+									<td th:text="${listaValores.tipoPessoa}" class="tipoPessoaList"></td>
+									<td th:text="${listaValores.documento}" class="documentoList"></td>
+									<td th:text="${listaValores.cep}" class="cepList"></td>
+									<td
+										th:text="${listaValores.enderecoRua} + ' ' + ${listaValores.numero} + ', ' + ${listaValores.complemento}"
+										class="enderecoList"></td>
+									<td><a class="btn btn-default"
+										th:href="${(#mvc.url('FC#deletar').arg(0, listaValores.id)).build()}"><em
+											class="fa fa-trash"></em></a></td>
+								</tr>
+							</th:block>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!--/.row-->
+	</div>
+	<!--/.row-->
+	</div>
+	<!--/.main-->
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/checkbox.js"></script>
+	<script src="js/pesquisar.js"></script>
+
+	<script>
+		window.onload = function() {
+			var chart1 = document.getElementById("line-chart").getContext("2d");
+			window.myLine = new Chart(chart1).Line(lineChartData, {
+				responsive : true,
+				scaleLineColor : "rgba(0,0,0,.2)",
+				scaleGridLineColor : "rgba(0,0,0,.05)",
+				scaleFontColor : "#c5c7cc"
+			});
+			var chart2 = document.getElementById("bar-chart").getContext("2d");
+			window.myBar = new Chart(chart2).Bar(barChartData, {
+				responsive : true,
+				scaleLineColor : "rgba(0,0,0,.2)",
+				scaleGridLineColor : "rgba(0,0,0,.05)",
+				scaleFontColor : "#c5c7cc"
+			});
+			var chart3 = document.getElementById("doughnut-chart").getContext(
+					"2d");
+			window.myDoughnut = new Chart(chart3).Doughnut(doughnutData, {
+				responsive : true,
+				segmentShowStroke : false
+			});
+			var chart4 = document.getElementById("pie-chart").getContext("2d");
+			window.myPie = new Chart(chart4).Pie(pieData, {
+				responsive : true,
+				segmentShowStroke : false
+			});
+			var chart5 = document.getElementById("radar-chart")
+					.getContext("2d");
+			window.myRadarChart = new Chart(chart5).Radar(radarData, {
+				responsive : true,
+				scaleLineColor : "rgba(0,0,0,.05)",
+				angleLineColor : "rgba(0,0,0,.2)"
+			});
+			var chart6 = document.getElementById("polar-area-chart")
+					.getContext("2d");
+			window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
+				responsive : true,
+				scaleLineColor : "rgba(0,0,0,.2)",
+				segmentShowStroke : false
+			});
+		};
+	</script>
+</body>
+</html>
